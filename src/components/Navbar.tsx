@@ -2,7 +2,7 @@ import Link from "next/link";
 
 const Navbar = () => {
     return (
-        <nav className="w-full fixed top-0">
+        <nav className="w-full fixed top-0 z-99">
             <div className="flex flex-row items-center justify-between p-10 py-5">
                 <h1 className="text-3xl font-medium cursor-pointer">LOGO</h1>
                 <ul className="flex-row flex gap-10 items-center">
