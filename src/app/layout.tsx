@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Kanit } from "next/font/google";
-import "./globals.css";
+import { Kanit } from "next/font/google";
+import "@/assets/style/globals.css";
+import Navbar from "@/components/Navbar";
 
 const kanitFont = Kanit({
   subsets: ["latin"],
@@ -15,7 +16,8 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
-      <body className={kanitFont.className}>
+      <body className={`${kanitFont.className}`}>
+        <Navbar />
         {children}
       </body>
     </html>
