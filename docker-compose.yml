@@ -1,0 +1,16 @@
+services:
+  portfolio:
+    container_name: portfolio
+    build: .
+    # image: akalak/portfolio
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.portfolio.entrypoints=web"
+      - "traefik.http.routers.portfolio.rule=Host(`portfolio.aklkbqx.xyz`)"
+      - "traefik.http.services.portfolio.loadbalancer.server.port=3000"
+    networks:
+      - web_network
+
+networks:
+  web_network:
+    external: true
