@@ -4,6 +4,8 @@ import { Kanit } from "next/font/google";
 import "@/assets/style/globals.css";
 
 import { Providers } from "./providers";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 
 const kanitFont = Kanit({
   subsets: ["latin"],
@@ -21,6 +23,8 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
       <body className={`${kanitFont.className}`}>
         <Providers>
           {children}
+          <Navbar />
+          <Footer />
         </Providers>
       </body>
     </html>
