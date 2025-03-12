@@ -66,7 +66,7 @@ const Home = () => {
           {Array.from({ length: 20 }).map((_, i) => (
             <motion.div
               key={i}
-              className="absolute w-2 h-2 bg-gray-400 dark:bg-gray-700 rounded-full"
+              className="absolute w-2 h-2 bg-gray-800 dark:bg-gray-100 rounded-full"
               style={{
                 top: `${Math.random() * 100}%`,
                 left: `${Math.random() * 100}%`,

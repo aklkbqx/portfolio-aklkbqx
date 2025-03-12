@@ -182,14 +182,13 @@ const Projects = () => {
     return (
         <div className="min-h-screen bg-gray-200 dark:bg-gray-900 pt-20 pb-20">
             <div className="container max-w-6xl mx-auto px-5">
+                <BackButton text="กลับไปหน้าหลัก" />
                 <motion.div
                     className="mb-16 relative"
                     initial="hidden"
                     animate="visible"
                     variants={headerVariants}
                 >
-                    <BackButton text="กลับไปหน้าหลัก" />
-
                     <h1 className="text-4xl md:text-5xl font-light tracking-wide text-gray-900 dark:text-gray-100 mb-4">
                         MY <span className="text-blue-600 dark:text-blue-400">PROJECTS</span>
                     </h1>

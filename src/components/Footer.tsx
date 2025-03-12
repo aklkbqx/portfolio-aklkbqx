@@ -113,7 +113,7 @@ const Footer = () => {
                             className="mt-4 px-6 py-2 bg-gradient-to-r from-blue-600 to-cyan-500 text-white rounded-md hover:from-blue-700 hover:to-cyan-600 transition-all shadow-md hover:shadow-lg"
                         >
                             <Link href="/contact">
-                                Get In Touch
+                                ติดต่อฉัน
                             </Link>
                         </motion.button>
                     </motion.div>

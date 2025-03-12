@@ -75,7 +75,7 @@ const Navbar = () => {
                             />
                         </div>
 
-                        <div className="hidden md:flex md:items-center md:justify-center md:flex-1 pe-20">
+                        <div className="hidden md:flex md:items-center md:justify-center md:flex-1 pe-10">
                             <ul className="flex items-center justify-center space-x-8">
                                 {menuItems.map((item) => (
                                     <Link href={item.path} key={item.path}>

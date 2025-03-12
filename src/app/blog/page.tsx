@@ -4,6 +4,8 @@ import { motion } from "framer-motion";
 import { Calendar, Clock, Search, Tag, ChevronRight } from 'lucide-react';
 import Link from 'next/link';
 import BackButton from '@/components/BackButton';
+import NewsNextJS from "@/assets/images/news-nextjs.png"
+import Image from 'next/image';
 
 const Blog = () => {
     const [searchQuery, setSearchQuery] = useState('');
@@ -12,12 +14,12 @@ const Blog = () => {
     const blogPosts = [
         {
             id: 1,
-            title: "",
-            excerpt: "",
-            publishDate: "",
-            readTime: "",
-            coverImage: "",
-            tags: []
+            title: "การเริ่มต้นใช้งาน Next.js",
+            excerpt: "เฟรมเวิร์คที่จะเปลี่ยนประสบการณ์การพัฒนาเว็บของคุณ",
+            publishDate: "March 10, 2025",
+            readTime: "5 น.",
+            coverImage: NewsNextJS,
+            tags: ["เฟรมเวิร์ค", "Next.js"]
         }
     ];
 
@@ -31,21 +33,21 @@ const Blog = () => {
     });
 
     return (
-        <div className="min-h-screen bg-gray-200 dark:bg-gray-900 py-16 px-4">
-            <div className="max-w-6xl container mx-auto">
+        <div className="min-h-screen bg-gray-200 dark:bg-gray-900 px-4 pt-20">
+            <div className="max-w-6xl container mx-auto px-5">
 
                 <BackButton text="กลับไปหน้าหลัก" />
 
                 <motion.div
-                    className="text-center mb-16"
+                    className="mb-16 text-center"
                     initial={{ opacity: 0, y: -20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.7 }}
                 >
-                    <h1 className="text-3xl md:text-4xl tracking-[0.5rem] text-gray-900 dark:text-gray-100 mb-4">
+                    <h1 className="text-4xl md:text-5xl tracking-[0.5rem] text-gray-900 dark:text-gray-100 mb-4">
                         BLOG
                     </h1>
-                    <p className="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+                    <p className="text-lg md:text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
                         ความคิด ไอเดีย และข้อมูลเชิงลึกเกี่ยวกับการพัฒนาเว็บ การออกแบบ และเทคโนโลยี
                     </p>
                 </motion.div>
@@ -59,7 +61,7 @@ const Blog = () => {
                     <div className="relative mb-8">
                         <input
                             type="text"
-                            placeholder="SEARCH ARTICLES"
+                            placeholder="ค้นหา..."
                             value={searchQuery}
                             onChange={(e) => setSearchQuery(e.target.value)}
                             className="w-full bg-transparent border border-gray-400 dark:border-gray-600 py-3 px-4 pl-10 focus:outline-none focus:border-gray-800 dark:focus:border-gray-400 text-gray-800 dark:text-gray-200 placeholder-gray-500 dark:placeholder-gray-400"
@@ -95,7 +97,11 @@ const Blog = () => {
                             >
                                 <div className="h-48 bg-gray-300 dark:bg-gray-800 overflow-hidden relative">
                                     <div className="absolute inset-0 flex items-center justify-center text-gray-500 dark:text-gray-400">
-                                        [Featured Image]
+                                        <Image
+                                            src={NewsNextJS}
+                                            alt={post.title}
+                                            className="w-full h-full object-cover"
+                                        />
                                     </div>
                                 </div>
 

@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from "framer-motion";
-import { Mail, Phone, MapPin, Send } from 'lucide-react';
+import { Mail, Phone, MapPin, Send, Github, Facebook, Instagram } from 'lucide-react';
 import { useState, ChangeEvent, FormEvent } from 'react';
 
 const Contact = () => {
@@ -31,11 +31,18 @@ const Contact = () => {
         setTimeout(() => setSubmitSuccess(false), 3000);
     };
 
+    const socialLinks = [
+        { name: 'GitHub', icon: <Github className="w-[35px] h-[35px]" />, href: 'https://github.com/aklkbqx/', color: 'hover:text-gray-700 dark:hover:text-gray-300' },
+        { name: 'Facebook', icon: <Facebook className="w-[35px] h-[35px]" />, href: 'https://facebook.com/akalakkruaboon', color: 'hover:text-blue-600 dark:hover:text-blue-400' },
+        { name: 'Instagram', icon: <Instagram className="w-[35px] h-[35px]" />, href: 'https://instagram.com/akl.kbqx', color: 'hover:text-pink-600 dark:hover:text-pink-400' },
+    ];
+
     return (
         <div className="flex justify-center items-center min-h-screen bg-gray-200 dark:bg-gray-900 py-16 px-4">
+
             <div className="w-full max-w-4xl">
                 <motion.h1
-                    className="text-[2rem] md:text-[3rem] tracking-[0.5rem] md:tracking-[1rem] text-center text-gray-900 dark:text-gray-100 mb-16"
+                    className="mb-16 text-center"
                     initial="hidden"
                     animate="visible"
                     variants={{
@@ -50,7 +57,8 @@ const Contact = () => {
                         }
                     }}
                 >
-                    CONTACT ME
+                    <div className="text-[2rem] md:text-[3rem] text-gray-900 dark:text-gray-100 ">CONTACT ME</div>
+                    <div className="text-[1rem] md:text-[2rem] text-gray-900 dark:text-gray-100 ">ติดต่อฉัน</div>
                 </motion.h1>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
@@ -73,7 +81,7 @@ const Contact = () => {
                         }}
                     >
                         <div className="text-lg md:text-xl tracking-[0.2rem] text-gray-800 dark:text-gray-200 mb-10">
-                            {"LET'S GET IN TOUCH"}
+                            ช่องการติดต่ออื่นๆ
                         </div>
 
                         <div className="space-y-6">
@@ -106,6 +114,23 @@ const Contact = () => {
                                     <p className="text-gray-800 dark:text-gray-200">Bangkok, Thailand</p>
                                 </div>
                             </div>
+
+                            <motion.div
+                                className="flex items-center space-x-4 pt-2"
+                            >
+                                {socialLinks.map((social) => (
+                                    <motion.a
+                                        key={social.name}
+                                        href={social.href}
+                                        whileHover={{ scale: 1.1 }}
+                                        className={`text-gray-600 dark:text-gray-400 transition-colors ${social.color}`}
+                                        aria-label={social.name}
+                                        target="_blank"
+                                    >
+                                        {social.icon}
+                                    </motion.a>
+                                ))}
+                            </motion.div>
                         </div>
                     </motion.div>
 
@@ -132,7 +157,7 @@ const Contact = () => {
                                     name="name"
                                     value={formData.name}
                                     onChange={handleChange}
-                                    placeholder="YOUR NAME"
+                                    placeholder="ชื่อของคุณ"
                                     required
                                     className="w-full bg-transparent border-b border-gray-400 dark:border-gray-600 py-2 px-1 focus:outline-none focus:border-gray-800 dark:focus:border-gray-400 text-gray-800 dark:text-gray-200 placeholder-gray-500 dark:placeholder-gray-400"
                                 />
@@ -144,7 +169,7 @@ const Contact = () => {
                                     name="email"
                                     value={formData.email}
                                     onChange={handleChange}
-                                    placeholder="YOUR EMAIL"
+                                    placeholder="อีเมลของคุณ"
                                     required
                                     className="w-full bg-transparent border-b border-gray-400 dark:border-gray-600 py-2 px-1 focus:outline-none focus:border-gray-800 dark:focus:border-gray-400 text-gray-800 dark:text-gray-200 placeholder-gray-500 dark:placeholder-gray-400"
                                 />
@@ -155,7 +180,7 @@ const Contact = () => {
                                     name="message"
                                     value={formData.message}
                                     onChange={handleChange}
-                                    placeholder="YOUR MESSAGE"
+                                    placeholder="เขียนข้อความติดต่อฉัน"
                                     required
                                     rows={5}
                                     className="w-full bg-transparent border-b border-gray-400 dark:border-gray-600 py-2 px-1 focus:outline-none focus:border-gray-800 dark:focus:border-gray-400 text-gray-800 dark:text-gray-200 placeholder-gray-500 dark:placeholder-gray-400 resize-none"
@@ -170,7 +195,7 @@ const Contact = () => {
                                 whileTap={{ scale: 0.98 }}
                             >
                                 <span className="tracking-wider text-sm text-gray-800 dark:text-gray-200 group-hover:text-white dark:group-hover:text-gray-900">
-                                    {isSubmitting ? 'SENDING...' : 'SEND MESSAGE'}
+                                    {isSubmitting ? 'กำลังส่ง...' : 'ส่งข้อความหาฉัน'}
                                 </span>
                                 <Send className="w-4 h-4 text-gray-700 dark:text-gray-300 group-hover:text-white dark:group-hover:text-gray-900" />
                             </motion.button>
