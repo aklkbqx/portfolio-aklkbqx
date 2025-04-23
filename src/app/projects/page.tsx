@@ -17,6 +17,11 @@ import ProjectImage08 from "@/assets/images/projects/08.png"
 import ProjectImage09 from "@/assets/images/projects/09.png"
 import ProjectImage10 from "@/assets/images/projects/10.png"
 
+import PlayStore from "@/assets/images/svg/playstore-svgrepo-com.svg"
+import AppStore from "@/assets/images/svg/app-store-svgrepo-com.svg"
+
+
+
 const Projects = () => {
     const projectsRef = useRef(null);
     const isProjectsInView = useInView(projectsRef, { once: true, amount: 0.1 });
@@ -77,7 +82,11 @@ const Projects = () => {
             image: ProjectImage01,
             categories: ["mobile"],
             techStack: ["React Native", "Expo", "Bun.js", "Elysia.js"],
-            year: "2024"
+            year: "2024",
+            link: {
+                ios: "https://apps.apple.com/th/app/mae-on-wellness-city/id6446140980",
+                android: "https://play.google.com/store/apps/details?id=com.maeonwellnesscity&hl=th&gl=US",
+            }
         },
         {
             id: 2,
@@ -171,6 +180,8 @@ const Projects = () => {
             image: ProjectImage10,
             categories: ["web"],
             techStack: ["PHP", "MariaDB", "JavaScript", "Jquery", "Bootstrap 5"],
+            githubUrl: "https://github.com/aklkbqx/30nakhonsawan",
+            demoUrl: "https://30nakhonsawan.aklkbqx.xyz/",
             year: "2023"
         },
     ];
@@ -305,10 +316,49 @@ const Projects = () => {
                                             href={project.demoUrl}
                                             target="_blank"
                                             rel="noopener noreferrer"
-                                            className="flex items-center justify-center gap-1 px-3 py-2 bg-blue-600 dark:bg-blue-500 text-white rounded-md hover:bg-blue-700 dark:hover:bg-blue-600 transition-colors text-sm"
+                                            className="flex items-center justify-center gap-1 px-3 py-2 bg-blue-500 dark:bg-blue-700 text-white rounded-md hover:bg-gray-700 dark:hover:bg-gray-600 transition-colors text-sm"
                                         >
                                             <ExternalLink className="w-4 h-4" />
                                             Demo
+                                        </a>
+                                    )}
+                                    {project.link && project.link.android && (
+                                        <a
+                                            href={project.link.android}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="flex flex-1 items-center justify-center gap-2 px-3 py-2 bg-gray-800 dark:bg-gray-700 text-white rounded-md hover:bg-gray-700 dark:hover:bg-gray-600 transition-colors text-sm"
+                                        >
+                                            <Image
+                                                src={PlayStore}
+                                                alt="Play Store"
+                                                width={25}
+                                                height={25}
+                                            />
+                                            <div className="flex flex-col">
+                                                <p className="text-xs">GET IT ON</p>
+                                                <p>Google Play</p>
+                                            </div>
+                                        </a>
+                                    )}
+                                    {project.link && project.link.ios && (
+                                        <a
+                                            href={project.link.ios}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="flex flex-1 items-center justify-center gap-2 px-3 py-2 bg-gray-800 dark:bg-gray-700 text-white rounded-md hover:bg-gray-700 dark:hover:bg-gray-600 transition-colors text-sm"
+                                        >
+                                            <Image
+                                                src={AppStore}
+                                                alt="iOS"
+                                                width={35}
+                                                height={35}
+                                                className="invert"
+                                            />
+                                            <div className="flex flex-col">
+                                                <p className="text-xs">Download on</p>
+                                                <p>App Store</p>
+                                            </div>
                                         </a>
                                     )}
                                 </div>
